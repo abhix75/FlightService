@@ -17,7 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     modelNumber: 
     {
       type: DataTypes.STRING, 
-      allowNull:false
+      allowNull:false,
+      validate: 
+      {
+        isAlphanumeric:true,
+      }
     }
     ,
 
@@ -25,7 +29,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       type:DataTypes.INTEGER,
       allowNUll:false,
-      defaultValue:"0"
+     defaultValue:"0",
+      validate:{
+
+        max:800
+      }
     } 
   }, 
   {
