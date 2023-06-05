@@ -34,8 +34,18 @@ async function createAirplane(data)
         }
     }
 }
+async function getAirplanes()
+{
+    try {
+        const airplane = await airplaneRepository.getAll();
+        return airplane;
+    } catch (error) {
+       throw new AppError("Not Able to get All the Airplane objects",StatusCodes.INTERNAL_SERVER_ERROR); 
+    }
+}
 
 module.exports=
 {
-    createAirplane
+    createAirplane,
+    getAirplanes
 }
