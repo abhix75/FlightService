@@ -17,7 +17,12 @@ async destroy(data)
             where:{
                 id:data
             }
-        });
+            
+        }
+        );
+        if(!response){
+            throw new AppError("Not able to find the Resourse",StatusCodes.NOT_FOUND)
+        }
         return response;
 }
 async get(data)
