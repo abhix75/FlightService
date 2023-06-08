@@ -29,11 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
-    type:  {
-      type:DataTypes.ENUM,
-      values:[BUSINESS,ECONOMY,PRIMIUM_ECONOMY,FIRST_CLASS],
-      defaultValue:ECONOMY,
-      allowNull:false
+    type: {
+      type: DataTypes.ENUM,
+      values: [BUSINESS, ECONOMY, PRIMIUM_ECONOMY, FIRST_CLASS],
+      defaultValue: ECONOMY,
+      allowNull: false
     }
   }, {
     sequelize,
