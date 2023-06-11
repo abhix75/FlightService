@@ -10,7 +10,12 @@ const router = express.Router();
                 CityController.createCity);
 
 
+                router.get('/',
+                CityController.getCity);
 
+
+
+     
 
 
                 

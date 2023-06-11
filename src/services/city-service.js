@@ -25,7 +25,17 @@ async function createCity(data)
         throw new AppError("cannot create new City object",StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
+async function getCity()
+{
+    try {
+        const city = await cityRepository.getAll();
+        return city;
+    } catch (error) {
+       throw new AppError("Not Able to get All the city objects",StatusCodes.INTERNAL_SERVER_ERROR); 
+    }
+}
 
 module.exports={
-    createCity
+    createCity,
+    getCity
 }
