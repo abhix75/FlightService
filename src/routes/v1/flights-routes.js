@@ -6,8 +6,9 @@ const router = express.Router();
 
 //    /api/v1/airport POST
 router.post('/',
-FlightMiddleware.validateCreateRequest,
-FlightMiddleware.validateDateTime,
-FlightController.createFlight);
-router.get('/', FlightController.getAllFlights);
+                FlightMiddleware.validateCreateRequest,
+                FlightMiddleware.validateDateTime,
+                FlightController.createFlight);
+router.get('/',
+                FlightController.getAllFlights);
 module.exports =router;

@@ -4,6 +4,7 @@ const AppError = require('../utils/error/app-error');
 const {Op}=require('sequelize');
 
 
+
 const flightRepository = new FlightRepository();
 
 async function createFlight(data)
@@ -35,6 +36,7 @@ async function createFlight(data)
     }
 }
 async function getAllFlights(query) {
+   
     let customFilter = {};
     let sortFilter = [];
     const endingTripTime = " 23:59:00";
