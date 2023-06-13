@@ -87,7 +87,16 @@ async function getFlight(id)
         {
             throw new AppError("THE Flight THAT YOU HAVE REQUESTED IS NOT PRESENT",error.statusCodes)
         }
-       throw new AppError("Not Able to get  the Airplane objects",StatusCodes.INTERNAL_SERVER_ERROR); 
+       throw new AppError("Not Able to get  the Flight objects",StatusCodes.INTERNAL_SERVER_ERROR); 
+    }
+}
+async function updateSeats(data) {
+    try {
+        const response = await flightRepository.updateRemainingSeats(data.flightId, data.seats, data.dec);
+        return response;
+    } catch(error) {
+        console.log(error);
+        throw new AppError('Cannot update data of the flight', StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 
@@ -95,5 +104,6 @@ module.exports=
 {
     createFlight,
     getAllFlights,
-    getFlight
+    getFlight,
+    updateSeats
 }

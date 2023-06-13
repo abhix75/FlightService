@@ -110,8 +110,20 @@ function validateDateTime(req, res, next) {
   
     next();
   }
-  
+function validateupdtaeseats(req,res,next)
+  {
+      if(!req.body.seats)
+      {
+          ErrorResponse.message = 'Something went wrong while creating the Flight';
+          ErrorResponse.error = new AppError('seats Not Found In the incomin request',StatusCodes.NOT_FOUND)
+          return res
+                  .status(StatusCodes.BAD_REQUEST)
+                  .json(ErrorResponse);
+      }
+      next();
+  }
 module.exports={
     validateCreateRequest,
-    validateDateTime
+    validateDateTime,
+    validateupdtaeseats
 }

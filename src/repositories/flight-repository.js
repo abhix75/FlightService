@@ -16,7 +16,7 @@ class FlightRepository extends CrudRepository
             order: sort,
             include: [
                 {
-                    model: Airplane,
+                    model:Airplane,
                     required: true,
                     as: 'airplaneDetail'
                 },
@@ -53,6 +53,17 @@ class FlightRepository extends CrudRepository
             ]
         });
         return response;
+    }
+
+    async updateRemainingSeats(flightId,seats,dec = true){
+        const flight = await Flight.findByPk(flightId);
+        console.log("dec",typeof(dec));
+        if(+(dec)) {
+            await flight.decrement('totalSeats', {by: seats});
+        } else {
+            await flight.increment('totalSeats', {by: seats});
+        }
+        return flight;
     }
 }
 
