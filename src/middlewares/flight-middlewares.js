@@ -105,7 +105,9 @@ function validateDateTime(req, res, next) {
         ["The Departure Time must be less than the Arrival Time"],
         StatusCodes.BAD_REQUEST
       );
-      return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+      return res
+                .status(StatusCodes.BAD_REQUEST)
+                .json(ErrorResponse);
     }
   
     next();
