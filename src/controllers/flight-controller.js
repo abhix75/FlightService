@@ -66,6 +66,7 @@ async function getFlight(req,res){
 
 async function updateSeats(req, res) {
     try {
+        console.log("inside update seats");
         console.log(req.body);
         const response = await FlightService.updateSeats({
             flightId: req.params.id,
