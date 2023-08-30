@@ -15,10 +15,10 @@ async function createAirport(data)
     } catch (error) {
     
         {
-    
+            console.log(error);
             if(error.name == 'SequelizeValidationError')
             {
-                //console.log(error);
+               
                 let explanation =[];
                 error.errors.forEach((err)=>{
                     explanation.push(err.message);
