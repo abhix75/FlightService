@@ -3,7 +3,7 @@ const{ErrorResponse }=require('../utils/common')
 function validateCreateRequest(req,res,next)
 {
     if(!req.body.modelNumber)
-    {
+    {   console.log(req.body.modelNumber)
         ErrorResponse.message='Something went Wrong while creating the airplane';
         ErrorResponse.error={explanation:'Model Number Not Found in the incoming request'};
         return res
